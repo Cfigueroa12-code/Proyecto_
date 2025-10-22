@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+	--content-max-width: 1200px;
+	--gradient-primary: linear-gradient(135deg, #5b6cf0 0%, #dd57ff 100%);
+	--gradient-secondary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+	--gradient-elegant: linear-gradient(135deg, #fafafa 0%, #f4f4f5 100%);
+}
+
+html,body,#root{
+	height:100%;
+	scroll-behavior: smooth;
+}
+
+body{
+	@apply font-sans bg-gradient-to-br from-elegant-50 via-primary-50 to-accent-50 text-secondary-900 antialiased;
+}
+
+.container-centered{
+	max-width:var(--content-max-width);
+	margin-left:auto;
+	margin-right:auto;
+	padding-left:1rem;
+	padding-right:1rem;
+}
+
+/* Componentes personalizados */
+@layer components {
+	.glass-effect {
+		@apply bg-white/80 backdrop-blur-md border border-white/20;
+	}
+	
+	.modern-card {
+		@apply bg-white rounded-2xl shadow-modern-lg border border-secondary-100/50 hover:shadow-modern-xl transition-all duration-300;
+	}
+	
+	.gradient-text {
+		@apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+	}
+	
+	.modern-button {
+		@apply bg-gradient-to-r from-primary-500 to-accent-500 hover:from-primary-600 hover:to-accent-600 text-white font-semibold px-6 py-3 rounded-xl shadow-modern transition-all duration-300 hover:shadow-glow transform hover:-translate-y-0.5;
+	}
+	
+	.modern-input {
+		@apply w-full px-4 py-3 border border-secondary-200 rounded-xl focus:ring-2 focus:ring-primary-300 focus:border-primary-400 outline-none transition-all duration-300 bg-white/50 backdrop-blur-sm;
+	}
+}
